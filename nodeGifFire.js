@@ -1,11 +1,15 @@
 var jenkinsapi = require('jenkins-api');
 var opener = require('opener')
 var pkill = require('pkill')
-var jenkins = jenkinsapi.init('https://mlino:18d50fcadfa975dcc22a0d7efdc0b8dd@jenkins-0.cf.nonprod-mpn.ro11.allstate.com/job/IS-Alfred/', {
-    strictSSL: false
-})
+var jenkins;
+var firstTime = false;
 
-function getStatus(prevStatus) {
+function getStatus(prevStatus, username, apiKey, jenkinsUrl) {
+  if (!firstTime){
+    var newJenkinsConnection = "https://" + username + ":" + apiKey + "@" + jenkinsUrl
+      jenkins = jenkinsapi.init(newJenkinsConnection, {strictSSL: false})
+  }
+  firstTime = true;
     new Promise(function(resolve, reject) {
       jenkins.all_jobs(function(err, data) {
           resolve(data)
@@ -13,7 +17,8 @@ function getStatus(prevStatus) {
     }).then(function(result) {
         displayGif(prevStatus, result)
     }).catch(function(err) {
-        console.log(err);
+        if (failedConnection) {}
+        else {console.log("We have found an error trying to reference your build:\n",err); }
     })
 }
 
@@ -59,4 +64,4 @@ function displayGif(prevStatus, result) {
     }, 4000)
 }
 
-getStatus('')
+getStatus('', process.env.username, process.env.apikey, process.env.jenkinsurl)
