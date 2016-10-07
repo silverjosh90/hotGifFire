@@ -11,7 +11,7 @@ username=<username> apikey=<api_key_for_jenkins> jenkinsurl=<url_for_jenkins_pro
 
 # How do I find my Jenkins API Key?
 * Log into Jenkins
-* Click on your username in the top right of the page
+* Click on your username in the top right corner of the page
 * Click on 'Configure'
 * Copy your API Token
 
