@@ -6,6 +6,6 @@ A simple node app that will connect to your Jenkins project using your username 
 Type this into your command line and put in your information for the username, api key, and jenkins url.
 
 ```
-username=<username> apikey=<api_key_from_jenkins> jenkinsurl=<url_from_jenkins_project> node nodeGifFire.js
+username=<username> apikey=<api_key_for_jenkins> jenkinsurl=<url_for_jenkins_project> node nodeGifFire.js
 ```
 
