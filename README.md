@@ -16,5 +16,5 @@ username=<username> apikey=<api_key_for_jenkins> jenkinsurl=<url_for_jenkins_pro
 * Copy your API Token
 
 # Which url do I use for the 'Jenkins Url'?
-The Url should be just the domain part that points the browser at your project folder
+The Url should be just the domain part for your project folder on Jenkins
 * Example: jenkins-0.cf.nonprod-mpn.ro11.allstate.com/job/IS-Alfred/
